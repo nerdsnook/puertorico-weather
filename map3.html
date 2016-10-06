@@ -131,7 +131,7 @@ $(document).ready(function() {
 $.post("https://translate.yandex.net/api/v1.5/tr/translate?lang=en-es&key=trnsl.1.1.20161006T001719Z.c26296fba250e930.9dacdd5a37ff35d4b57b4b748e2ae30077cf80a8", {text: weather.currently}, function(result){
             console.log(result);
         var translated = $(result).find("text").text();
-      html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;C</h2>';
+      html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;F</h2>';
       html += '<ul><li>'+weather.city+', '+weather.region+', ' +weather.country+ '</li>';
       html += '<ul><li>humedad '+weather.humidity+'%</li>';
      // html += '<li class="currently">'+translated+'</li></ul>';
