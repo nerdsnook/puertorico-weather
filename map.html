@@ -132,7 +132,7 @@ $.post("https://translate.yandex.net/api/v1.5/tr/translate?lang=en-es&key=trnsl.
       html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.alt.temp+'&deg;C</h2>';
       html += '<ul><li>'+weather.city+', '+weather.region+', ' +weather.country+ '</li>';
       html += '<ul><li>humedad '+weather.humidity+'%</li>';
-      html += '<li class="currently">'+translated+'</li></ul>';
+     // html += '<li class="currently">'+translated+'</li></ul>';
 
       $("#weather").html(html);
       });
