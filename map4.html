@@ -1,129 +1,19 @@
-
 <title>El tiempo en Puerto Rico.</title>
-
-<style>
-  
-
-/* header */
-h1 {
-  color: #55acee;
-  text-align: center;
-}
-
-/* header/copyright link */
-.link {
-  text-decoration: none;
-  color: #55acee;
-  border-bottom: 2px dotted #55acee;
-  transition: .3s;
-  -webkit-transition: .3s;
-  -moz-transition: .3s;
-  -o-transition: .3s;
-  cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
-}
-
-.link:hover {
-  color: #2ecc71;
-  border-bottom: 2px dotted #2ecc71;
-}
-
-/* start da css for da buttons */
-.btn {
-  border-radius: 5px;
-  padding: 15px 25px;
-  font-size: 22px;
-  text-decoration: none;
-  margin: 20px;
-  color: #fff;
-  position: relative;
-  display: inline-block;
-  top: 10px;
-  left: 0;
-  z-index: 1;
-
-  
-}
-
-.btn:active {
-  transform: translate(0px, 5px);
-  -webkit-transform: translate(0px, 5px);
-  box-shadow: 0px 1px 0px 0px;
-}
-
-.blue {
-  background-color: #55acee;
-  box-shadow: 0px 5px 0px 0px #3C93D5;
-}
-
-.blue:hover {
-  background-color: #6FC6FF;
-}
-
-.green {
-  background-color: #2ecc71;
-  box-shadow: 0px 5px 0px 0px #15B358;
-}
-
-.green:hover {
-  background-color: #48E68B;
-}
-
-.red {
-  background-color: #e74c3c;
-  box-shadow: 0px 5px 0px 0px #CE3323;
-}
-
-.red:hover {
-  background-color: #FF6656;
-}
-
-.purple {
-  background-color: #9b59b6;
-  box-shadow: 0px 5px 0px 0px #82409D;
-}
-
-.purple:hover {
-  background-color: #B573D0;
-}
-
-.orange {
-  background-color: #e67e22;
-  box-shadow: 0px 5px 0px 0px #CD6509;
-}
-
-.orange:hover {
-  background-color: #FF983C;
-}
-
-.yellow {
-  background-color: #f1c40f;
-  box-shadow: 0px 5px 0px 0px #D8AB00;
-}
-
-.yellow:hover {
-  background-color: #FFDE29;
-}
-
-/* copyright stuffs.. */
-p {
-  text-align: center;
-  color: #55acee;
-  padding-top: 20px;
-}
-  </style>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
-<iframe src="https://earth.nullschool.net/#current/wind/surface/level/orthographic=-64.03,18.43,3000/loc=-66.502,18.051" style="border:0px #ffffff none;"  height="100%" name="myiFrame"  frameborder="1" class="map" marginheight="0px" marginwidth="0px" width="100%" allowfullscreen></iframe>
-<a href="/" class="herebtn orange">Espalda</a>
+<iframe src="https://earth.nullschool.net/#current/wind/surface/level/orthographic=-64.51,18.63,3000/loc=-66.419,18.066" style="border:0px #ffffff none;"  height="100%" name="myiFrame"  frameborder="1" class="map" marginheight="0px" marginwidth="0px" width="100%" allowfullscreen></iframe>
+<a href="/" style="left:10px" class="herebtn orange">Espalda</a>
+<a style="left:80%" onclick="var iframe = $('.map'); iframe.attr('src', 'https://www.instantstreetview.com/@18.011352,-66.613922,81.42h,1.76p,1z');" class="herebtn orange">Fondo</a>
 <div id="weather"></div>
 <script>
 // v3.1.0
 //Docs at http://simpleweatherjs.com
 $(document).ready(function() {
   $.simpleWeather({
-    location: 'Ponce, Puerto Rico',
+    location: 'Ponce, Puerto Rico',  
     //location: 'San Juan, San Juan',
     woeid: '',
     unit: 'f',
@@ -133,8 +23,8 @@ $.post("https://translate.yandex.net/api/v1.5/tr/translate?lang=en-es&key=trnsl.
         var translated = $(result).find("text").text();
       html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;F</h2>';
       html += '<ul><li>'+weather.city+', '+weather.region+', ' +weather.country+ '</li>';
-      html += '<ul><li>humedad '+weather.humidity+'%</li>';
-      //html += '<li class="currently">'+translated+'</li></ul>';
+      html += '<ul><li><img src="static/hu.png" width="15px" height="15px" /> '+weather.humidity+'%</li>';
+      html += '<li class="currently"><i class="fa fa-binoculars" style="color:black" aria-hidden="true"> </i> '+weather.visibility+' M</li></ul>';
 
       $("#weather").html(html);
       });
@@ -145,153 +35,4 @@ $.post("https://translate.yandex.net/api/v1.5/tr/translate?lang=en-es&key=trnsl.
   });
 });
 </script>
-<style>
-body{
-  background-color: black;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-/*
-  Docs at http://http://simpleweatherjs.com
-
-  Look inspired by http://www.degreees.com/
-  Used for demo purposes.
-
-  Weather icon font from http://fonts.artill.de/collection/artill-weather-icons
-
-  DO NOT hotlink the assets/font included in this demo. If you wish to use the same font icon then download it to your local assets at the link above. If you use the links below odds are at some point they will be removed and your version will break.
-*/
-
-@font-face {
-    font-family: 'weather';
-    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot');
-    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot?#iefix') format('embedded-opentype'),
-         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.woff') format('woff'),
-         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.ttf') format('truetype'),
-         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.svg#artill_clean_weather_iconsRg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-body {
-  font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
-#weather {
-  width: 500px;
-  margin: 0px auto;
-  text-align: center;
-  text-transform: uppercase;
-  position: absolute;
-  top: 50px;
-  left: 30%;
-  z-index: 1;
-}
-
-.herebtn{
-  border-radius: 5px;
-  padding: 15px 25px;
-  font-size: 22px;
-  text-decoration: none;
-  margin: 20px;
-  color: #fff;
-  position: absolute;
-  display: inline-block;
-  top: 10px;
-  left: 10px;
-  z-index: 100;
-
-}
-
-.herebtn:active {
-  transform: translate(0px, 5px);
-  -webkit-transform: translate(0px, 5px);
-  box-shadow: 0px 1px 0px 0px;
-}
-i {
-  color: #fff;
-  font-family: weather;
-  font-size: 150px;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1.0;
-  text-transform: none;
-}
-
-.icon-0:before { content: ":"; }
-.icon-1:before { content: "p"; }
-.icon-2:before { content: "S"; }
-.icon-3:before { content: "Q"; }
-.icon-4:before { content: "S"; }
-.icon-5:before { content: "W"; }
-.icon-6:before { content: "W"; }
-.icon-7:before { content: "W"; }
-.icon-8:before { content: "W"; }
-.icon-9:before { content: "I"; }
-.icon-10:before { content: "W"; }
-.icon-11:before { content: "I"; }
-.icon-12:before { content: "I"; }
-.icon-13:before { content: "I"; }
-.icon-14:before { content: "I"; }
-.icon-15:before { content: "W"; }
-.icon-16:before { content: "I"; }
-.icon-17:before { content: "W"; }
-.icon-18:before { content: "U"; }
-.icon-19:before { content: "Z"; }
-.icon-20:before { content: "Z"; }
-.icon-21:before { content: "Z"; }
-.icon-22:before { content: "Z"; }
-.icon-23:before { content: "Z"; }
-.icon-24:before { content: "E"; }
-.icon-25:before { content: "E"; }
-.icon-26:before { content: "3"; }
-.icon-27:before { content: "a"; }
-.icon-28:before { content: "A"; }
-.icon-29:before { content: "a"; }
-.icon-30:before { content: "A"; }
-.icon-31:before { content: "6"; }
-.icon-32:before { content: "1"; }
-.icon-33:before { content: "6"; }
-.icon-34:before { content: "1"; }
-.icon-35:before { content: "W"; }
-.icon-36:before { content: "1"; }
-.icon-37:before { content: "S"; }
-.icon-38:before { content: "S"; }
-.icon-39:before { content: "S"; }
-.icon-40:before { content: "M"; }
-.icon-41:before { content: "W"; }
-.icon-42:before { content: "I"; }
-.icon-43:before { content: "W"; }
-.icon-44:before { content: "a"; }
-.icon-45:before { content: "S"; }
-.icon-46:before { content: "U"; }
-.icon-47:before { content: "S"; }
-
-#weather h2 {
-  margin: 0 0 8px;
-  color: #fff;
-  font-size: 100px;
-  font-weight: 300;
-  text-align: center;
-  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
-}
-
-#weather ul {
-  margin: 0;
-  padding: 0;
-}
-
-#weather li {
-  background: #fff;
-  background: rgba(255,255,255,0.90);
-  padding: 20px;
-  display: inline-block;
-  border-radius: 5px;
-}
-
-#weather .currently {
-  margin: 10 20px;
-}
-</style>
-<link rel="stylesheet" href="button.css" type="text/css" />
+<link rel="stylesheet" href="static/style.css" type="text/css" />>
