@@ -23,7 +23,7 @@ $.post("https://translate.yandex.net/api/v1.5/tr/translate?lang=en-es&key=trnsl.
         var translated = $(result).find("text").text();
       html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;F</h2>';
       html += '<ul><li>'+weather.city+', '+weather.region+', ' +weather.country+ '</li>';
-      html += '<ul><li>humedad '+weather.humidity+'%</li>';
+      html += '<ul><li><img src="static/hu.png" width="15px" height="15px" />  '+weather.humidity+'%</li>';
       html += '<li class="currently"><i class="fa fa-binoculars" style="color:black" aria-hidden="true"> </i> '+weather.visibility+' M</li></ul>';
 
       $("#weather").html(html);
